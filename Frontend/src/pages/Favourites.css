@@ -1,0 +1,164 @@
+/* === Favourites Page === */
+.favourites-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
+}
+
+.fav-card {
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.fav-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+.fav-img-wrapper {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    background: var(--bg-tertiary);
+}
+
+.fav-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.fav-card:hover .fav-img {
+    transform: scale(1.05);
+}
+
+.fav-remove-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(239, 68, 68, 0.9);
+    color: white;
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.fav-card:hover .fav-remove-btn {
+    opacity: 1;
+}
+
+.fav-remove-btn:hover {
+    background: #dc2626;
+    transform: scale(1.1);
+}
+
+.fav-info {
+    padding: 18px;
+}
+
+.fav-name {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.fav-category {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 500;
+    margin-bottom: 14px;
+}
+
+.fav-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.fav-price {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--accent-secondary);
+}
+
+@media (max-width: 768px) {
+    .favourites-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+
+    .fav-img-wrapper {
+        height: 160px;
+    }
+
+    /* Always show remove button on touch devices */
+    .fav-remove-btn {
+        opacity: 1;
+    }
+}
+
+@media (max-width: 480px) {
+
+    /* Keep 2 columns on phone — Amazon / Flipkart style */
+    .favourites-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .fav-card:hover {
+        transform: none;
+    }
+
+    .fav-img-wrapper {
+        height: 140px;
+    }
+
+    .fav-info {
+        padding: 10px 10px 12px;
+    }
+
+    .fav-name {
+        font-size: 0.82rem;
+    }
+
+    .fav-category {
+        font-size: 0.68rem;
+        margin-bottom: 8px;
+    }
+
+    .fav-price {
+        font-size: 0.95rem;
+    }
+
+    .fav-bottom .btn-sm {
+        padding: 6px 10px;
+        font-size: 0.75rem;
+    }
+
+    .fav-remove-btn {
+        width: 26px;
+        height: 26px;
+        font-size: 0.7rem;
+        top: 8px;
+        right: 8px;
+    }
+}
