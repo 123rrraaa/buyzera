@@ -4,6 +4,7 @@ const fs = require('fs');
 
 // Initialize Firebase Admin SDK
 const serviceAccountPath = path.join(__dirname, 'serviceAccountKey.json');
+const renderSecretPath = '/etc/secrets/serviceAccountKey.json';
 
 if (process.env.FIREBASE_SERVICE_ACCOUNT) {
     // Use environment variable (for Render/cloud deployment)
@@ -12,6 +13,13 @@ if (process.env.FIREBASE_SERVICE_ACCOUNT) {
         credential: admin.credential.cert(serviceAccount)
     });
     console.log('🔥 Firebase initialized with env service account');
+} else if (fs.existsSync(renderSecretPath)) {
+    // Use Render Secret File
+    const serviceAccount = JSON.parse(fs.readFileSync(renderSecretPath, 'utf8'));
+    admin.initializeApp({
+        credential: admin.credential.cert(serviceAccount)
+    });
+    console.log('🔥 Firebase initialized with Render secret file');
 } else if (fs.existsSync(serviceAccountPath)) {
     // Use service account key file if it exists (local dev)
     const serviceAccount = require(serviceAccountPath);
