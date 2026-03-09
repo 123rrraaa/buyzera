@@ -1,0 +1,443 @@
+/* ═══════════════════════════════════════════════
+   Product Card - Premium E-commerce Design
+   ═══════════════════════════════════════════════ */
+
+.product-card {
+    overflow: hidden;
+    transition: all var(--transition-base);
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.product-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-glow);
+    border-color: var(--accent-primary);
+}
+
+/* ── Image Section ── */
+.product-image-wrapper {
+    position: relative;
+    aspect-ratio: 1;
+    overflow: hidden;
+    background: #f5f6fa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+}
+
+.product-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform var(--transition-slow);
+}
+
+.product-card:hover .product-image {
+    transform: scale(1.06);
+}
+
+/* ── Badges / Tags ── */
+.product-tag {
+    position: absolute;
+    padding: 5px 12px;
+    border-radius: 8px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    z-index: 2;
+}
+
+/* Discount - top left green badge */
+.tag-discount {
+    top: 12px;
+    left: 12px;
+    background: #22c55e;
+    color: #fff;
+    border-radius: 20px;
+    font-size: 0.72rem;
+    padding: 5px 14px;
+}
+
+/* Low stock - top left amber badge (shifts down if discount present) */
+.tag-low {
+    top: 12px;
+    left: 12px;
+    background: rgba(245, 158, 11, 0.92);
+    color: #000;
+}
+
+.tag-discount~.tag-low {
+    top: 44px;
+}
+
+/* Out of stock */
+.tag-out {
+    top: 12px;
+    left: 12px;
+    background: rgba(239, 68, 68, 0.92);
+    color: #fff;
+}
+
+.tag-discount~.tag-out {
+    top: 44px;
+}
+
+/* Category - top right */
+.tag-category {
+    top: 12px;
+    right: 12px;
+    left: auto;
+    background: rgba(30, 41, 59, 0.78);
+    color: #fff;
+    backdrop-filter: blur(4px);
+    border-radius: 20px;
+    font-size: 0.68rem;
+    padding: 5px 12px;
+}
+
+/* ── Wishlist Heart ── */
+.wishlist-btn {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease;
+    z-index: 2;
+}
+
+.wishlist-btn:hover {
+    transform: scale(1.15);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.wishlist-btn.wishlisted {
+    animation: heartPop 0.3s ease;
+}
+
+@keyframes heartPop {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.3);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* ── Product Info Section ── */
+.product-info {
+    padding: 16px 18px 18px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    align-items: flex-start;
+    text-align: left;
+}
+
+.product-brand {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: #3b82f6;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.tag-distance {
+    background: #1d4ed8;
+    color: white;
+    top: 8px;
+    left: 8px;
+}
+
+.tag-fast {
+    background: #16a34a;
+    color: white;
+    top: 40px;
+    left: 8px;
+}
+
+.product-name {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin: 0 0 6px;
+    color: var(--text-primary);
+    line-height: 1.35;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.product-description {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    line-height: 1.45;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin: 0 0 12px;
+}
+
+/* ── Price Section ── */
+.product-price-section {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin-bottom: 14px;
+}
+
+.product-price {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--text-primary);
+}
+
+.product-original-price {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    text-decoration: line-through;
+    font-weight: 500;
+}
+
+/* ── Add to Cart Button ── */
+.product-cart-btn {
+    width: 100%;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 12px;
+    background: #3b82f6;
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.25s ease;
+    margin-top: auto;
+}
+
+.product-cart-btn:hover:not(:disabled) {
+    background: #2563eb;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 14px rgba(59, 130, 246, 0.4);
+}
+
+.product-cart-btn:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+.product-cart-btn:disabled {
+    background: #94a3b8;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.cart-icon {
+    font-size: 1rem;
+}
+
+/* ── Rating (kept for backward compat) ── */
+.product-rating {
+    color: #fbbf24;
+    font-size: 0.85rem;
+    margin-bottom: 12px;
+}
+
+.rating-count {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    margin-left: 4px;
+}
+
+.product-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.add-to-cart-btn {
+    padding: 8px 18px !important;
+    font-size: 0.8rem !important;
+}
+
+/* ═══════════════════════════════════
+   TABLET — ≤ 900px
+   ═══════════════════════════════════ */
+@media (max-width: 900px) {
+    .product-card {
+        border-radius: 12px;
+    }
+
+    .product-info {
+        padding: 12px 10px 14px;
+    }
+
+    .product-name {
+        font-size: 0.85rem;
+    }
+
+    .product-price {
+        font-size: 1.1rem;
+    }
+}
+
+/* ═══════════════════════════════════
+   PHONE — ≤ 600px  (2-col grid)
+   ═══════════════════════════════════ */
+@media (max-width: 600px) {
+    .product-card {
+        border-radius: 10px;
+        min-width: 0;
+        max-width: 100%;
+    }
+
+    .product-card:hover {
+        transform: none;
+    }
+
+    .product-image-wrapper {
+        padding: 8px;
+    }
+
+    .product-info {
+        padding: 8px 8px 10px;
+    }
+
+    .product-name {
+        font-size: 0.78rem;
+        -webkit-line-clamp: 2;
+    }
+
+    .product-description {
+        font-size: 0.7rem;
+        margin-bottom: 8px;
+        -webkit-line-clamp: 1;
+    }
+
+    .product-price-section {
+        gap: 4px;
+        margin-bottom: 8px;
+    }
+
+    .product-price {
+        font-size: 0.95rem;
+    }
+
+    .product-original-price {
+        font-size: 0.72rem;
+    }
+
+    .product-cart-btn {
+        padding: 8px 10px;
+        font-size: 0.75rem;
+        border-radius: 8px;
+        gap: 4px;
+    }
+
+    .product-tag {
+        padding: 3px 8px;
+        font-size: 0.6rem;
+    }
+
+    .tag-discount {
+        top: 8px;
+        left: 8px;
+        padding: 3px 8px;
+        font-size: 0.6rem;
+    }
+
+    .tag-category {
+        top: 8px;
+        right: 8px;
+        padding: 3px 8px;
+        font-size: 0.58rem;
+    }
+
+    .wishlist-btn {
+        width: 28px;
+        height: 28px;
+        font-size: 0.85rem;
+        bottom: 6px;
+        right: 6px;
+    }
+
+    .product-brand {
+        font-size: 0.62rem;
+        letter-spacing: 0.8px;
+    }
+}
+
+/* ═══════════════════════════════════
+   SMALL PHONE — ≤ 360px
+   ═══════════════════════════════════ */
+@media (max-width: 360px) {
+    .product-image-wrapper {
+        padding: 6px;
+    }
+
+    .product-info {
+        padding: 6px 6px 8px;
+    }
+
+    .product-name {
+        font-size: 0.72rem;
+    }
+
+    .product-price {
+        font-size: 0.85rem;
+    }
+
+    .product-original-price {
+        font-size: 0.65rem;
+    }
+
+    .product-cart-btn {
+        padding: 7px 8px;
+        font-size: 0.7rem;
+        border-radius: 6px;
+    }
+
+    .product-description {
+        display: none;
+    }
+
+    .product-brand {
+        font-size: 0.58rem;
+    }
+
+    .wishlist-btn {
+        width: 24px;
+        height: 24px;
+        font-size: 0.75rem;
+    }
+
+    .product-tag {
+        padding: 2px 6px;
+        font-size: 0.55rem;
+    }
+}
