@@ -224,36 +224,24 @@
     }
 
     /* Slide-in drawer */
-    /* Slide-in drawer */
-.navbar-links {
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 280px;
-
-    height: 100vh;
-    height: 100dvh;
-
-    background: var(--bg-primary);
-
-    display: flex;
-    flex-direction: column;
-
-    align-items: stretch;
-    justify-content: flex-start;
-
-    padding: 80px 24px 32px;
-    gap: 4px;
-
-    box-shadow: -8px 0 40px rgba(0, 0, 0, 0.15);
-
-    transform: translateX(100%);
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-
-    z-index: 101;
-
-    overflow: hidden; /* 🔥 prevents scrolling */
-}
+    .navbar-links {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 280px;
+        height: 100vh;
+        height: 100dvh;
+        background: var(--bg-primary);
+        flex-direction: column;
+        align-items: stretch;
+        padding: 80px 24px 32px;
+        gap: 4px;
+        box-shadow: -8px 0 40px rgba(0, 0, 0, 0.15);
+        transform: translateX(100%);
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 101;
+        overflow-y: auto;
+    }
 
     .navbar-links.open {
         transform: translateX(0);
