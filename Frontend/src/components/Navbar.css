@@ -1,5 +1,5 @@
 .navbar {
-    position: sticky;
+    position: fixed;
     top: 0;
     z-index: 100;
     background: rgba(255, 255, 255, 0.9);
@@ -200,6 +200,10 @@
     color: var(--text-primary);
 }
 
+body {
+    padding-top: 70px; /* matches .navbar-inner height */
+}
+
 .dropdown-divider {
     border: none;
     border-top: 1px solid var(--border-color);
@@ -223,6 +227,10 @@
         height: 60px;
     }
 
+    body {
+        padding-top: 60px;
+    }
+
     /* Slide-in drawer */
     .navbar-links {
         position: fixed;
@@ -230,17 +238,11 @@
         right: 0;
         width: 280px;
         height: 100vh;
-        height: 100dvh;
-        background: var(--bg-primary);
-        flex-direction: column;
-        align-items: stretch;
+        height: 100dvh;          /* dynamic viewport for mobile browsers */
+        min-height: -webkit-fill-available; /* Safari fix */
         padding: 80px 24px 32px;
-        gap: 4px;
-        box-shadow: -8px 0 40px rgba(0, 0, 0, 0.15);
-        transform: translateX(100%);
-        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        z-index: 101;
         overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
     }
 
     .navbar-links.open {
@@ -336,6 +338,10 @@
    SMALL PHONE — ≤ 480px
    ═══════════════════════════════════ */
 @media (max-width: 480px) {
+    body {
+        padding-top: 54px;
+    }
+    
     .navbar-inner {
         height: 54px;
         padding: 0 4px;
