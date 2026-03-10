@@ -1,3 +1,17 @@
+html,
+body {
+    overflow-x: hidden;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    padding-left: 16px;
+    padding-right: 16px;
+    box-sizing: border-box;
+}
+
 .hero {
     position: relative;
     min-height: 85vh;
