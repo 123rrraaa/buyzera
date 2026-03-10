@@ -65,49 +65,62 @@ function App() {
   };
 
   return (
-    <>
-      {/* Show AdminNavbar for admin pages, customer Navbar for everything else */}
-      {!isAdminAuthPage && (
-        isAdminPage ? <AdminNavbar /> : <Navbar cartCount={cartItems.length} />
-      )}
+  <>
+    {/* Show AdminNavbar for admin pages, customer Navbar for everything else */}
+    {!isAdminAuthPage && (
+      isAdminPage ? <AdminNavbar /> : <Navbar cartCount={cartItems.length} />
+    )}
 
-      <Routes>
-        {/* Public */}
-        <Route path="/" element={<Home onAddToCart={addToCart} />} />
-        <Route path="/products" element={<Products onAddToCart={addToCart} />} />
-        <Route path="/products/:id" element={<ProductDetail onAddToCart={addToCart} />} />
+    <div className="app-layout">
+      <nav className="sidebar">
+        <h2>Menu</h2>
+        <ul>
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/products">Products</Link></li>
+          <li><Link to="/cart">Cart</Link></li>
+        </ul>
+      </nav>
 
-        {/* Customer Auth */}
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/forgot-password" element={<ForgotPassword />} />
+      <div className="main-content">
+        <Routes>
+          {/* Public */}
+          <Route path="/" element={<Home onAddToCart={addToCart} />} />
+          <Route path="/products" element={<Products onAddToCart={addToCart} />} />
+          <Route path="/products/:id" element={<ProductDetail onAddToCart={addToCart} />} />
 
-        {/* Protected Customer */}
-        <Route path="/cart" element={<ProtectedRoute><Cart cartItems={cartItems} setCartItems={setCartItems} fetchCart={fetchCart} /></ProtectedRoute>} />
-        <Route path="/checkout" element={<ProtectedRoute><Checkout cartItems={cartItems} setCartItems={setCartItems} /></ProtectedRoute>} />
-        <Route path="/orders" element={<ProtectedRoute><Orders /></ProtectedRoute>} />
-        <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
-        <Route path="/favourites" element={<ProtectedRoute><Favourites /></ProtectedRoute>} />
+          {/* Customer Auth */}
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
 
-        {/* Admin Auth */}
-        <Route path="/admin/login" element={<AdminLogin />} />
-        <Route path="/admin/register" element={<AdminRegister />} />
-        <Route path="/admin/forgot-password" element={<AdminForgotPassword />} />
+          {/* Protected Customer */}
+          <Route path="/cart" element={<ProtectedRoute><Cart cartItems={cartItems} setCartItems={setCartItems} fetchCart={fetchCart} /></ProtectedRoute>} />
+          <Route path="/checkout" element={<ProtectedRoute><Checkout cartItems={cartItems} setCartItems={setCartItems} /></ProtectedRoute>} />
+          <Route path="/orders" element={<ProtectedRoute><Orders /></ProtectedRoute>} />
+          <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
+          <Route path="/favourites" element={<ProtectedRoute><Favourites /></ProtectedRoute>} />
 
-        {/* Protected Admin */}
-        <Route path="/admin/dashboard" element={<ProtectedRoute adminOnly><Dashboard /></ProtectedRoute>} />
-        <Route path="/admin/products" element={<ProtectedRoute adminOnly><ProductManagement /></ProtectedRoute>} />
-        <Route path="/admin/orders" element={<ProtectedRoute adminOnly><OrderManagement /></ProtectedRoute>} />
-        <Route path="/admin/users" element={<ProtectedRoute adminOnly><UserManagement /></ProtectedRoute>} />
+          {/* Admin Auth */}
+          <Route path="/admin/login" element={<AdminLogin />} />
+          <Route path="/admin/register" element={<AdminRegister />} />
+          <Route path="/admin/forgot-password" element={<AdminForgotPassword />} />
 
-        {/* Redirect /admin to /admin/login */}
-        <Route path="/admin" element={<Navigate to="/admin/login" replace />} />
-      </Routes>
+          {/* Protected Admin */}
+          <Route path="/admin/dashboard" element={<ProtectedRoute adminOnly><Dashboard /></ProtectedRoute>} />
+          <Route path="/admin/products" element={<ProtectedRoute adminOnly><ProductManagement /></ProtectedRoute>} />
+          <Route path="/admin/orders" element={<ProtectedRoute adminOnly><OrderManagement /></ProtectedRoute>} />
+          <Route path="/admin/users" element={<ProtectedRoute adminOnly><UserManagement /></ProtectedRoute>} />
 
-      {/* Only show footer on customer pages */}
-      {!isAdminPage && <Footer />}
-    </>
-  );
+          {/* Redirect /admin to /admin/login */}
+          <Route path="/admin" element={<Navigate to="/admin/login" replace />} />
+        </Routes>
+      </div>
+    </div>
+
+    {/* Only show footer on customer pages */}
+    {!isAdminPage && <Footer />}
+  </>
+);
 }
 
 export default App;
