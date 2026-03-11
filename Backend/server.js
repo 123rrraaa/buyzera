@@ -19,6 +19,10 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+app.get("/", (req, res) => {
+    res.send("🚀 Buyzera Backend API Running Successfully");
+});
+
 // Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/users', require('./routes/userRoutes'));
@@ -29,7 +33,7 @@ app.use('/api/admin', adminRoutes);
 app.use('/api/upload', uploadRoutes);
 
 // Health check
-app.get('https://buyzera.onrender.com/api/health', (req, res) => {
+app.get('/api/health', (req, res) => {
     res.json({ status: 'OK', message: 'Buyzera API is running with Firebase' });
 });
 
