@@ -29,7 +29,7 @@ app.use('/api/admin', adminRoutes);
 app.use('/api/upload', uploadRoutes);
 
 // Health check
-app.get('/api/health', (req, res) => {
+app.get('https://buyzera.onrender.com/api/health', (req, res) => {
     res.json({ status: 'OK', message: 'Buyzera API is running with Firebase' });
 });
 
