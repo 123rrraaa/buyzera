@@ -51,7 +51,6 @@ export default function AdminLogin() {
                         </button>
                     </form>
                     <div className="auth-footer">
-                        <p>Need admin access? <Link to="/admin/register">Register as Admin</Link></p>
                         <p style={{ marginTop: '12px' }}>
                             <Link to="/login" style={{ fontSize: '0.85rem' }}>← Customer Login</Link>
                         </p>
