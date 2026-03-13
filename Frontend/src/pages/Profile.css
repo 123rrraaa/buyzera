@@ -254,6 +254,72 @@
     margin-bottom: 16px;
 }
 
+/* ── Large Desktop: > 1280px ── */
+@media (min-width: 1280px) {
+    .profile-layout {
+        grid-template-columns: 360px 1fr;
+        gap: 40px;
+    }
+
+    .profile-card {
+        padding: 40px;
+    }
+
+    .profile-details {
+        padding: 40px;
+    }
+
+    .avatar-circle {
+        width: 84px;
+        height: 84px;
+        font-size: 2.2rem;
+    }
+
+    .profile-avatar h2 {
+        font-size: 1.45rem;
+    }
+}
+
+/* ── Tablet landscape: ≤ 1024px ── */
+@media (max-width: 1024px) {
+    .profile-layout {
+        grid-template-columns: 280px 1fr;
+        gap: 24px;
+    }
+
+    .profile-card {
+        padding: 24px;
+    }
+
+    .profile-details {
+        padding: 24px;
+    }
+
+    .avatar-circle {
+        width: 64px;
+        height: 64px;
+        font-size: 1.7rem;
+    }
+
+    .profile-avatar h2 {
+        font-size: 1.15rem;
+    }
+
+    .profile-avatar p {
+        font-size: 0.85rem;
+    }
+
+    .address-method-btn {
+        padding: 12px 16px;
+        gap: 10px;
+    }
+
+    .method-icon {
+        font-size: 1.3rem;
+    }
+}
+
+/* ── Tablet portrait: ≤ 768px ── */
 @media (max-width: 768px) {
     .profile-layout {
         grid-template-columns: 1fr;
@@ -268,6 +334,7 @@
     }
 }
 
+/* ── Mobile: ≤ 480px ── */
 @media (max-width: 480px) {
     .profile-card {
         padding: 24px 18px;
@@ -309,5 +376,102 @@
 
     .address-method-btn {
         padding: 12px 16px;
+    }
+}
+
+/* ── Small phones: ≤ 360px ── */
+@media (max-width: 360px) {
+    .profile-card {
+        padding: 18px 14px;
+    }
+
+    .profile-details {
+        padding: 18px 14px;
+    }
+
+    .profile-avatar {
+        gap: 10px;
+        margin-bottom: 12px;
+    }
+
+    .avatar-circle {
+        width: 48px;
+        height: 48px;
+        font-size: 1.25rem;
+    }
+
+    .profile-avatar h2 {
+        font-size: 1rem;
+    }
+
+    .profile-avatar p {
+        font-size: 0.78rem;
+    }
+
+    .profile-joined {
+        font-size: 0.75rem;
+    }
+
+    .profile-sections {
+        gap: 16px;
+    }
+
+    .profile-details-header {
+        gap: 10px;
+        margin-bottom: 16px;
+    }
+
+    .profile-details-header h3 {
+        font-size: 0.98rem;
+    }
+
+    .location-badge {
+        padding: 6px 12px;
+        font-size: 0.78rem;
+    }
+
+    .address-method-btn {
+        padding: 10px 12px;
+        gap: 8px;
+        border-radius: 10px;
+    }
+
+    .method-icon {
+        font-size: 1.15rem;
+    }
+
+    .method-info strong {
+        font-size: 0.85rem;
+    }
+
+    .method-info p {
+        font-size: 0.72rem;
+    }
+
+    .address-method-desc {
+        font-size: 0.82rem;
+    }
+
+    .alert-warning {
+        font-size: 0.82rem;
+        padding: 10px 12px;
+    }
+
+    .location-coords {
+        font-size: 0.68rem;
+    }
+
+    .spinner-small {
+        width: 15px;
+        height: 15px;
+    }
+}
+
+/* ── Accessibility: respect reduced motion preference ── */
+@media (prefers-reduced-motion: reduce) {
+    .address-method-btn,
+    .spinner-small {
+        transition: none !important;
+        animation: none !important;
     }
 }
