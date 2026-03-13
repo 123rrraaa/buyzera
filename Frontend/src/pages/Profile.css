@@ -1,31 +1,15 @@
-/* Layout wrapper for perfect center alignment */
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    margin: 0;
-    background: var(--page-bg, #f9fafb);
-}
-
-/* Profile Layout */
 .profile-layout {
     display: grid;
     grid-template-columns: 320px 1fr;
     gap: 32px;
     align-items: flex-start;
-    max-width: 1200px;
-    width: 100%;
 }
 
-/* Profile Card */
 .profile-card {
     padding: 32px;
     text-align: center;
-    margin: auto; /* ensures centering inside grid */
 }
 
-/* Avatar Section */
 .profile-avatar {
     display: flex;
     align-items: center;
@@ -65,7 +49,6 @@ body {
     font-size: 0.85rem;
 }
 
-/* Sections */
 .profile-sections {
     display: flex;
     flex-direction: column;
@@ -99,7 +82,7 @@ body {
     gap: 16px;
 }
 
-/* Location Badge */
+/* Location Status Badge */
 .location-badge {
     display: inline-flex;
     align-items: center;
@@ -213,7 +196,7 @@ body {
     margin-left: 6px;
 }
 
-/* Divider */
+/* Address Divider */
 .address-divider {
     display: flex;
     align-items: center;
@@ -242,7 +225,7 @@ body {
     font-weight: 700;
 }
 
-/* Spinner */
+/* Small spinner for buttons */
 .spinner-small {
     width: 18px;
     height: 18px;
@@ -259,7 +242,7 @@ body {
     }
 }
 
-/* Alert */
+/* Alert warning style */
 .alert-warning {
     background: #fef3c7;
     color: #92400e;
@@ -271,36 +254,60 @@ body {
     margin-bottom: 16px;
 }
 
-/* ── Responsive Breakpoints ── */
-@media (min-width: 1280px) {
-    .profile-layout {
-        grid-template-columns: 360px 1fr;
-        gap: 40px;
-    }
-    .profile-card { padding: 40px; }
-    .profile-details { padding: 40px; }
-    .avatar-circle { width: 84px; height: 84px; font-size: 2.2rem; }
-    .profile-avatar h2 { font-size: 1.45rem; }
-}
-
-@media (max-width: 1024px) {
-    .profile-layout { grid-template-columns: 280px 1fr; gap: 24px; }
-    .profile-card { padding: 24px; }
-    .profile-details { padding: 24px; }
-    .avatar-circle { width: 64px; height: 64px; font-size: 1.7rem; }
-    .profile-avatar h2 { font-size: 1.15rem; }
-    .profile-avatar p { font-size: 0.85rem; }
-    .address-method-btn { padding: 12px 16px; gap: 10px; }
-    .method-icon { font-size: 1.3rem; }
-}
-
 @media (max-width: 768px) {
-    .profile-layout { grid-template-columns: 1fr; }
-    .form-row { grid-template-columns: 1fr; }
-    .address-methods { flex-direction: column; }
+    .profile-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .address-methods {
+        flex-direction: column;
+    }
 }
 
 @media (max-width: 480px) {
-    .profile-card { padding: 24px 18px; }
-    .profile-avatar { gap: 14px; margin-bottom: 16px; }
-    .avatar-circle { width: 56px; height: 56px; font-size: 1.5rem; }
+    .profile-card {
+        padding: 24px 18px;
+    }
+
+    .profile-avatar {
+        gap: 14px;
+        margin-bottom: 16px;
+    }
+
+    .avatar-circle {
+        width: 56px;
+        height: 56px;
+        font-size: 1.5rem;
+    }
+
+    .profile-avatar h2 {
+        font-size: 1.1rem;
+    }
+
+    .profile-avatar p {
+        font-size: 0.82rem;
+    }
+
+    .profile-details {
+        padding: 24px 18px;
+    }
+
+    .profile-details-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        margin-bottom: 20px;
+    }
+
+    .profile-details-header h3 {
+        font-size: 1.05rem;
+    }
+
+    .address-method-btn {
+        padding: 12px 16px;
+    }
+}
