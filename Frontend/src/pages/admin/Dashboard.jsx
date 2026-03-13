@@ -48,10 +48,10 @@ export default function Dashboard() {
 
     return (
         <div className="page container" style={{ paddingTop: 0, marginTop: 0 }}>
-            <div className="page-header" style={{ margin: 0 }}>
-                <h1 className="page-title">🛡️ Admin Dashboard</h1>
-                <p className="page-subtitle">Welcome to Buyzera admin panel</p>
-            </div>
+            <div className="page-header" style={{ marginTop: 0, marginBottom: 0 }}>
+    <h1 className="page-title" style={{ marginTop: 0 }}>🛡️ Admin Dashboard</h1>
+    <p className="page-subtitle">Welcome to Buyzera admin panel</p>
+</div>
 
             {/* Stats Cards */}
             <div className="grid grid-4 admin-stats-grid">
