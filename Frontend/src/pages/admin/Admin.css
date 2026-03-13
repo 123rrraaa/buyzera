@@ -76,6 +76,13 @@
 
 .admin-header .page-header {
     margin-bottom: 0;
+}
+
+.admin-stats-grid {
+    margin-bottom: 40px;
+}
+
+.page .page-header {
     margin-top: 0;
 }
 
