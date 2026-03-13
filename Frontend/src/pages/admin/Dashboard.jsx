@@ -47,7 +47,7 @@ export default function Dashboard() {
     if (loading) return <div className="page container"><div className="spinner"></div></div>;
 
     return (
-        <div className="page container">
+        <div className="page container" style={{ paddingTop: 0, marginTop: 0 }}>
             <div className="page-header" style={{ margin: 0 }}>
                 <h1 className="page-title">🛡️ Admin Dashboard</h1>
                 <p className="page-subtitle">Welcome to Buyzera admin panel</p>
