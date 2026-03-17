@@ -61,7 +61,6 @@ body {
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
-  padding-top: 70px;
 }
 
 a {
@@ -437,10 +436,6 @@ tr:hover td {
 
 @media (max-width: 768px) {
 
-  body {
-    padding-top: 60px;
-  }
-
   .grid-4,
   .grid-3 {
     grid-template-columns: repeat(2, 1fr);
@@ -509,7 +504,6 @@ tr:hover td {
   }
 
   body {
-    padding-top: 54px;
     font-size: 0.95rem;
   }
 }
