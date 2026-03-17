@@ -3,7 +3,6 @@ body {
     overflow-x: hidden;
 }
 
-/* Container fix */
 .container {
     width: 100%;
     max-width: 1200px;

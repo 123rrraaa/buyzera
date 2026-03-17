@@ -19,6 +19,10 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+app.get("/", (req, res) => {
+    res.send("🚀 Buyzera Backend API Running Successfully");
+});
+
 // Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/users', require('./routes/userRoutes'));
