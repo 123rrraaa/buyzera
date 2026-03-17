@@ -61,7 +61,6 @@ body {
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
-  padding-top: 70px;
 }
 
 a {
@@ -385,6 +384,7 @@ tr:hover td {
 .page {
   min-height: calc(100vh - 80px);
   padding: 40px 0;
+  padding-top: 100px;
   animation: fadeIn 0.4s ease;
 }
 
