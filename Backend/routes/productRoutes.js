@@ -28,10 +28,30 @@ router.get('/', async (req, res) => {
         }
 
         // Sort
-        if (sort === 'price_asc') products.sort((a, b) => a.price - b.price);
-        else if (sort === 'price_desc') products.sort((a, b) => b.price - a.price);
-        else if (sort === 'rating') products.sort((a, b) => b.rating - a.rating);
-        else products.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+if (sort) {
+    if (sort.includes(':')) {
+        const [field, order] = sort.split(':');
+        const direction = order === '1' ? 1 : -1;
+
+        products.sort((a, b) => {
+            const valA = a[field] || 0;
+            const valB = b[field] || 0;
+            return direction * (valA - valB);
+        });
+    } 
+    else if (sort === 'price_asc') {
+        products.sort((a, b) => a.price - b.price);
+    } 
+    else if (sort === 'price_desc') {
+        products.sort((a, b) => b.price - a.price);
+    } 
+    else if (sort === 'rating') {
+        products.sort((a, b) => (b.rating || 0) - (a.rating || 0));
+    }
+} 
+else {
+    products.sort((a, b) => new Date(b.createdAt || 0) - new Date(a.createdAt || 0));
+}
 
         products = products.slice(0, parseInt(limit));
 

@@ -49,9 +49,9 @@ export default function Dashboard() {
     return (
         <div className="page container">
             <div className="page-header">
-                <h1 className="page-title">🛡️ Admin Dashboard</h1>
-                <p className="page-subtitle">Welcome to Buyzera admin panel</p>
-            </div>
+    <h1 className="page-title">🛡️ Admin Dashboard</h1>
+    <p className="page-subtitle">Welcome to Buyzera admin panel</p>
+</div>
 
             {/* Stats Cards */}
             <div className="grid grid-4 admin-stats-grid">
